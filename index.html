@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPN VISION — Next-Gen Security Protocol Analyzer</title>
+  <meta name="description" content="AI-augmented IPsec/IKE packet intelligence platform for enterprise cryptographic auditing and vulnerability discovery." />
+  <link rel="icon" type="image/png" href="/vpn-vision-shield.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-[#F4F6F8] font-body-md text-[#17212B] min-h-screen antialiased selection:bg-[#2563eb] selection:text-[#ffffff]">
+  <!-- Reusable SVG symbol template for VPN Vision Stealth Shield + Aperture Logo (Light/Enterprise Adaptive) -->
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="vpn-vision-logo" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="shield-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3b82f6" />
+          <stop offset="50%" stop-color="#2563eb" />
+          <stop offset="100%" stop-color="#1e3a8a" />
+        </linearGradient>
+        <linearGradient id="shield-inner-light" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="#f0f4f8" stop-opacity="0.98" />
+        </linearGradient>
+        <radialGradient id="aperture-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#60a5fa" />
+          <stop offset="60%" stop-color="#2563eb" />
+          <stop offset="100%" stop-color="#1d4ed8" />
+        </radialGradient>
+      </defs>
+
+      <!-- Outer Angular Cyber Shield Contour -->
+      <path d="M50,6 L86,22 L86,54 C86,74 50,94 50,94 C50,94 14,74 14,54 L14,22 Z" fill="url(#shield-inner-light)" stroke="url(#shield-blue-grad)" stroke-width="4.5" stroke-linejoin="round" />
+      
+      <!-- Inner Shield Bevel Accent Contour -->
+      <path d="M50,14 L78,27 L78,52 C78,68 50,84 50,84 C50,84 22,68 22,52 L22,27 Z" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-opacity="0.45" />
+
+      <!-- Center Vertical Bevel Axis -->
+      <path d="M50,14 L50,84" stroke="#2563eb" stroke-width="1" stroke-opacity="0.3" />
+
+      <!-- Vision Eye Outer Contour Inside Shield -->
+      <path d="M26,48 C36,32 64,32 74,48 C64,64 36,64 26,48 Z" fill="#ffffff" stroke="url(#shield-blue-grad)" stroke-width="3.2" stroke-linejoin="round" />
+      
+      <!-- Vision Aperture Outer Ring -->
+      <circle cx="50" cy="48" r="10.5" fill="none" stroke="#2563eb" stroke-width="2.5" />
+      
+      <!-- Glowing Pupil Core -->
+      <circle cx="50" cy="48" r="5" fill="url(#aperture-glow)" />
+      <circle cx="48.5" cy="46.5" r="1.5" fill="#ffffff" />
+    </symbol>
+  </svg>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

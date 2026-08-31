@@ -1,0 +1,81 @@
+:root {
+  /* Light Theme Surface & Base Colors */
+  --color-bg: #F4F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-dim: #EEF1F4;
+  --color-surface-bright: #FFFFFF;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #FAFBFC;
+  --color-surface-container: #FFFFFF;
+  --color-surface-container-high: #F4F6F8;
+  --color-surface-container-highest: #E8ECEF;
+  --color-input: #F8FAFC;
+
+  /* Brand Accents (Enterprise Navy & Sapphire Blue) */
+  --color-primary: #2563eb;
+  --color-primary-container: #eff6ff;
+  --color-primary-fixed: #dbeafe;
+  --color-primary-fixed-dim: #3b82f6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a8a;
+
+  /* Content & Text */
+  --color-on-background: #17212B;
+  --color-on-surface: #17212B;
+  --color-on-surface-variant: #5F6B76;
+
+  /* Outlines & Borders */
+  --color-outline: #8A949E;
+  --color-outline-variant: #D9DEE5;
+
+  /* Semantic Alerts (Light Enterprise SOC) */
+  --color-error: #ef4444;
+  --color-error-container: #fef2f2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #991b1b;
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+
+  /* Typography */
+  --font-primary: 'Inter', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Dark Theme - Charcoal, Graphite & Soft Black Enterprise Tokens */
+.dark {
+  --color-bg: #17191B;
+  --color-surface: #232629;
+  --color-surface-dim: #1D2023;
+  --color-surface-bright: #282C30;
+  --color-surface-container-lowest: #17191B;
+  --color-surface-container-low: #1D2023;
+  --color-surface-container: #232629;
+  --color-surface-container-high: #282C30;
+  --color-surface-container-highest: #363A3F;
+  --color-input: #202326;
+
+  /* Brand Accents (Restrained Technical Silver / Slate) */
+  --color-primary: #3b82f6;
+  --color-primary-container: #1E252D;
+  --color-primary-fixed: #2A323D;
+  --color-primary-fixed-dim: #60a5fa;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #93c5fd;
+
+  /* Content & Text */
+  --color-on-background: #E8EAED;
+  --color-on-surface: #E8EAED;
+  --color-on-surface-variant: #A7ADB4;
+
+  /* Outlines & Borders */
+  --color-outline: #777E86;
+  --color-outline-variant: #363A3F;
+
+  /* Semantic Alerts (Muted Desaturated SOC Palette) */
+  --color-error: #f87171;
+  --color-error-container: rgba(239, 68, 68, 0.12);
+  --color-on-error: #ffffff;
+  --color-on-error-container: #fca5a5;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+}

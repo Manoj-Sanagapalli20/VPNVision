@@ -1,0 +1,427 @@
+{
+  "id": "task_1788164040501",
+  "fileName": "d1.pcapng",
+  "fileSize": "0.00 MB",
+  "timestamp": "2026-08-31T08:14:07.942Z",
+  "extractedFeatures": {
+    "fileName": "d1.pcapng",
+    "fileSize": "0.00 MB",
+    "totalPackets": 8,
+    "ikePacketCount": 4,
+    "espPacketCount": 4,
+    "ahPacketCount": 0,
+    "ikeVersion": "IKEv2",
+    "ikeExchangeTypes": [
+      "IKE_SA_INIT",
+      "IKE_AUTH"
+    ],
+    "ikeEvidence": {
+      "saInit": true,
+      "auth": true,
+      "createChildSa": false,
+      "informational": false,
+      "frames": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "esp": {
+      "detected": "Observed",
+      "packetCount": 4,
+      "spis": [
+        "0xa48bec2a",
+        "0xff6d160a"
+      ],
+      "sequenceNumbers": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "directions": [
+        "172.18.160.85 -> 172.18.160.12",
+        "172.18.160.12 -> 172.18.160.85"
+      ],
+      "frames": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "ah": {
+      "detected": "Not observed",
+      "packetCount": 0,
+      "frames": []
+    },
+    "natt": {
+      "detected": "Not observed"
+    },
+    "encryption": {
+      "observed": true,
+      "algorithm": "AES-CBC-256",
+      "keyLength": 256,
+      "weak": false,
+      "aead": false,
+      "evidence": [
+        "Frame #1: AES-CBC-256 (IKE)",
+        "Frame #2: AES-CBC-256 (IKE)"
+      ]
+    },
+    "integrity": {
+      "observed": true,
+      "algorithm": "HMAC-SHA2-256-128",
+      "weak": false,
+      "evidence": [
+        "Frame #1: HMAC-SHA2-256-128",
+        "Frame #2: HMAC-SHA2-256-128"
+      ]
+    },
+    "prf": {
+      "observed": true,
+      "algorithm": "HMAC-SHA2-384",
+      "weak": false,
+      "evidence": [
+        "Frame #1: HMAC-SHA2-384",
+        "Frame #2: HMAC-SHA2-384"
+      ]
+    },
+    "dhGroup": {
+      "observed": true,
+      "group": 14,
+      "name": "Group 14 (2048-bit MODP)",
+      "bits": 2048,
+      "weak": false,
+      "evidence": [
+        "Frame #1: Group 14 (2048-bit MODP)",
+        "Frame #2: Group 14 (2048-bit MODP)"
+      ]
+    },
+    "authentication": {
+      "observed": false,
+      "method": "Not observed",
+      "evidence": []
+    },
+    "pfs": {
+      "status": "Not observed",
+      "evidence": []
+    },
+    "ipsecMode": {
+      "mode": "Tunnel",
+      "evidence": [
+        "Observed 4 ESP encapsulation frames across gateways"
+      ]
+    },
+    "sourceIps": [
+      "172.18.160.85",
+      "172.18.160.12"
+    ],
+    "destIps": [
+      "172.18.160.12",
+      "172.18.160.85"
+    ],
+    "bidirectional": true,
+    "flows": [
+      {
+        "src": "172.18.160.85",
+        "dst": "172.18.160.12",
+        "protocol": "ISAKMP",
+        "srcPort": 500,
+        "dstPort": 500,
+        "packetCount": 4,
+        "bytes": 1644,
+        "bidirectional": true,
+        "spi": null
+      },
+      {
+        "src": "172.18.160.85",
+        "dst": "172.18.160.12",
+        "protocol": "ESP",
+        "srcPort": 0,
+        "dstPort": 0,
+        "packetCount": 4,
+        "bytes": 488,
+        "bidirectional": true,
+        "spi": "0xa48bec2a"
+      }
+    ]
+  },
+  "ruleFindings": [
+    {
+      "ruleId": "IKE-001",
+      "category": "Key Exchange & Protocol",
+      "feature": "IKE Version",
+      "observedValue": "IKEv2 (RFC 7296)",
+      "severity": "PASS",
+      "title": "Modern IKEv2 Protocol Active",
+      "description": "The capture demonstrates standard IKEv2 negotiation. IKEv2 provides enhanced reliability, built-in NAT-T support, multi-homing (MOBIKE), and resilient DoS protection compared to legacy IKEv1.",
+      "evidence": "Observed in Frame(s): #1, #2, #3, #4"
+    },
+    {
+      "ruleId": "ESP-001",
+      "category": "Encrypted Data Plane",
+      "feature": "ESP Protocol",
+      "observedValue": "Observed (4 packets)",
+      "severity": "PASS",
+      "title": "ESP Encrypted Payload Flow Observed",
+      "description": "IPsec Encapsulating Security Payload (ESP) active. Identified 4 encrypted tunnel packet(s) carrying authenticated and encrypted payload data.",
+      "evidence": "SPI(s): 0xa48bec2a, 0xff6d160a | Frames: #5, #6, #7, #8"
+    },
+    {
+      "ruleId": "AH-002",
+      "category": "Encrypted Data Plane",
+      "feature": "AH Protocol",
+      "observedValue": "Not observed",
+      "severity": "INFO",
+      "title": "AH Protocol Not Observed",
+      "description": "Authentication Header (AH) protocol 51 was not observed. Modern IPsec deployments favor ESP with AEAD ciphers over standalone AH.",
+      "evidence": "0 AH packets in capture"
+    },
+    {
+      "ruleId": "ENC-001",
+      "category": "Cryptographic Security",
+      "feature": "Encryption Algorithm",
+      "observedValue": "AES-CBC-256",
+      "severity": "PASS",
+      "title": "Strong Encryption Suite Observed (AES-CBC-256)",
+      "description": "Approved modern cryptographic cipher (AES-CBC-256) negotiated in Security Association proposal. Complies with NIST SP 800-77 Rev 1 enterprise security guidelines.",
+      "evidence": "Frame #1: AES-CBC-256 (IKE)\nFrame #2: AES-CBC-256 (IKE)"
+    },
+    {
+      "ruleId": "INT-001",
+      "category": "Cryptographic Security",
+      "feature": "Integrity Algorithm",
+      "observedValue": "HMAC-SHA2-256-128",
+      "severity": "PASS",
+      "title": "Approved Integrity Algorithm (HMAC-SHA2-256-128)",
+      "description": "High-assurance cryptographic authentication algorithm (HMAC-SHA2-256-128) verified in proposal negotiation.",
+      "evidence": "Frame #1: HMAC-SHA2-256-128\nFrame #2: HMAC-SHA2-256-128"
+    },
+    {
+      "ruleId": "DH-001",
+      "category": "Key Exchange & Protocol",
+      "feature": "Diffie-Hellman Group",
+      "observedValue": "Group 14 (2048-bit MODP)",
+      "severity": "PASS",
+      "title": "Adequate Diffie-Hellman Group (Group 14 (2048-bit MODP))",
+      "description": "The key exchange provides sufficient cryptographic work factor and forward secrecy protection.",
+      "evidence": "Frame #1: Group 14 (2048-bit MODP)\nFrame #2: Group 14 (2048-bit MODP)"
+    },
+    {
+      "ruleId": "PFS-003",
+      "category": "Key Exchange & Protocol",
+      "feature": "Perfect Forward Secrecy (PFS)",
+      "observedValue": "Not observed",
+      "severity": "INFO",
+      "title": "PFS Not Observed in Capture",
+      "description": "The capture trace does not contain Child SA rekeying or exchange evidence necessary to conclusively verify PFS status.",
+      "evidence": "No CREATE_CHILD_SA exchange observed in trace"
+    },
+    {
+      "ruleId": "MODE-002",
+      "category": "Encrypted Data Plane",
+      "feature": "IPsec Mode",
+      "observedValue": "Tunnel Mode",
+      "severity": "PASS",
+      "title": "IPsec Tunnel Mode Identified",
+      "description": "Full packet encapsulation protects both inner payload headers and gateway addressing.",
+      "evidence": "Observed 4 ESP encapsulation frames across gateways"
+    },
+    {
+      "ruleId": "AUTH-002",
+      "category": "Identity & Authentication",
+      "feature": "Authentication Method",
+      "observedValue": "Not observed",
+      "severity": "INFO",
+      "title": "Authentication Method Not Observed",
+      "description": "IKE_AUTH or Phase 1 authentication payloads were not captured in this trace.",
+      "evidence": "No AUTH payload observed in trace frames"
+    },
+    {
+      "ruleId": "NATT-002",
+      "category": "Encrypted Data Plane",
+      "feature": "NAT Traversal (NAT-T)",
+      "observedValue": "Not observed",
+      "severity": "INFO",
+      "title": "NAT-T Not Observed",
+      "description": "No UDP port 4500 NAT traversal frames were observed in this capture.",
+      "evidence": "0 UDP/4500 packets found"
+    }
+  ],
+  "securityScore": 89,
+  "threatLevel": "GUARD: ACTIVE",
+  "breakdown": {
+    "crypto": 95,
+    "compliance": 95,
+    "anomaly": 33
+  },
+  "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "passed": 6,
+    "anomalies": 1
+  },
+  "flows": [
+    {
+      "src": "172.18.160.85",
+      "dst": "172.18.160.12",
+      "protocol": "ISAKMP",
+      "srcPort": 500,
+      "dstPort": 500,
+      "packetCount": 4,
+      "bytes": 1644,
+      "bidirectional": true,
+      "spi": null
+    },
+    {
+      "src": "172.18.160.85",
+      "dst": "172.18.160.12",
+      "protocol": "ESP",
+      "srcPort": 0,
+      "dstPort": 0,
+      "packetCount": 4,
+      "bytes": 488,
+      "bidirectional": true,
+      "spi": "0xa48bec2a"
+    }
+  ],
+  "mlFlows": [
+    {
+      "metadata": {
+        "srcIp": "172.18.160.85",
+        "dstIp": "172.18.160.12",
+        "srcPort": 0,
+        "dstPort": 0,
+        "protocol": "ESP",
+        "packetCount": 2
+      },
+      "features": {
+        "duration": 3365120,
+        "total_fiat": 0,
+        "total_biat": 0,
+        "min_fiat": null,
+        "min_biat": null,
+        "max_fiat": null,
+        "max_biat": null,
+        "mean_fiat": null,
+        "mean_biat": null,
+        "flowPktsPerSecond": 0.5943324457968809,
+        "flowBytesPerSecond": 72.50855838721947,
+        "min_flowiat": 3365120,
+        "max_flowiat": 3365120,
+        "mean_flowiat": 3365120,
+        "std_flowiat": 0,
+        "min_active": 0,
+        "mean_active": 0,
+        "max_active": 0,
+        "std_active": 0,
+        "min_idle": 3365120,
+        "mean_idle": 3365120,
+        "max_idle": 3365120,
+        "std_idle": 0
+      },
+      "aiResult": {
+        "flowIndex": 0,
+        "classification": "P2P",
+        "confidence": 73.54,
+        "anomalyStatus": "NORMAL",
+        "anomalyScore": 20.57
+      }
+    },
+    {
+      "metadata": {
+        "srcIp": "172.18.160.85",
+        "dstIp": "172.18.160.12",
+        "srcPort": 500,
+        "dstPort": 500,
+        "protocol": "ISAKMP",
+        "packetCount": 4
+      },
+      "features": {
+        "duration": 39080960,
+        "total_fiat": 29257984,
+        "total_biat": 23224064,
+        "min_fiat": 29257984,
+        "min_biat": 23224064,
+        "max_fiat": 29257984,
+        "max_biat": 23224064,
+        "mean_fiat": 29257984,
+        "mean_biat": 23224064,
+        "flowPktsPerSecond": 0.10235163107559282,
+        "flowBytesPerSecond": 42.06652037206865,
+        "min_flowiat": 9822976,
+        "max_flowiat": 15856896,
+        "mean_flowiat": 13026986.666666666,
+        "std_flowiat": 3034305.768590458,
+        "min_active": 0,
+        "mean_active": 0,
+        "max_active": 0,
+        "std_active": 0,
+        "min_idle": 9822976,
+        "mean_idle": 13026986.666666666,
+        "max_idle": 15856896,
+        "std_idle": 3034305.768590458
+      },
+      "aiResult": {
+        "flowIndex": 1,
+        "classification": "P2P",
+        "confidence": 41.7,
+        "anomalyStatus": "ANOMALY",
+        "anomalyScore": 52.81
+      }
+    },
+    {
+      "metadata": {
+        "srcIp": "172.18.160.85",
+        "dstIp": "172.18.160.12",
+        "srcPort": 0,
+        "dstPort": 0,
+        "protocol": "ESP",
+        "packetCount": 2
+      },
+      "features": {
+        "duration": 5381120,
+        "total_fiat": 0,
+        "total_biat": 0,
+        "min_fiat": null,
+        "min_biat": null,
+        "max_fiat": null,
+        "max_biat": null,
+        "mean_fiat": null,
+        "mean_biat": null,
+        "flowPktsPerSecond": 0.3716698382492864,
+        "flowBytesPerSecond": 45.34372026641294,
+        "min_flowiat": 5381120,
+        "max_flowiat": 5381120,
+        "mean_flowiat": 5381120,
+        "std_flowiat": 0,
+        "min_active": 0,
+        "mean_active": 0,
+        "max_active": 0,
+        "std_active": 0,
+        "min_idle": 5381120,
+        "mean_idle": 5381120,
+        "max_idle": 5381120,
+        "std_idle": 0
+      },
+      "aiResult": {
+        "flowIndex": 2,
+        "classification": "P2P",
+        "confidence": 63.89,
+        "anomalyStatus": "NORMAL",
+        "anomalyScore": 24.53
+      }
+    }
+  ],
+  "telemetry": {
+    "score": 89,
+    "threatLevel": "GUARD: ACTIVE",
+    "pcapCount": 1,
+    "secureCount": 6,
+    "reviewCount": 0,
+    "riskCount": 0
+  }
+}
